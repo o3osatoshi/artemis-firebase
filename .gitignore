@@ -241,3 +241,25 @@ fabric.properties
 **/*.bak
 .idea
 .firebaserc
+
+
+
+# firebase functions
+
+**/node_modules/*
+**/.firebase
+**/.firebaserc
+**/.runtimeconfig.json
+*/npm-debug.log
+lerna-debug.log
+*~
+service-account-credentials.json
+**/package-lock.json
+## keep the root package-lock so that tools are consistent
+!/package-lock.json
+**/ui-debug.log
+**/database-debug.log
+**/pubsub-debug.log
+**/tsconfig-compile.json
+yarn.lock
+
