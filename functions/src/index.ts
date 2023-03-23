@@ -1,4 +1,9 @@
 import * as functions from "firebase-functions";
+import {initializeApp} from "firebase-admin/app";
+import {getFirestore} from "firebase-admin/firestore";
+
+initializeApp();
+const db = getFirestore();
 
 exports.createUser = functions.firestore
   .document("customers/{customerId}")
@@ -12,4 +17,13 @@ exports.createUser = functions.firestore
     console.log(name);
 
     // perform desired operations ...
+    // Add a new document with a generated id.
+    db.collection("messages")
+      .add({
+        name: newValue.name,
+        message: "Hello Firebase!",
+      })
+      .then((docRef) => {
+        console.log("Document written with ID: ", docRef.id);
+      });
   });
