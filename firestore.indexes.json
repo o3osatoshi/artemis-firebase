@@ -1,0 +1,16 @@
+{
+    "indexes": [
+    ],
+    "fieldOverrides": [
+    {
+        "collectionGroup": "customers",
+        "fieldPath": "age",
+        "indexes": [
+        {
+            "queryScope": "COLLECTION",
+            "order": "DESCENDING",
+        }
+        ]
+    }
+    ]
+}
