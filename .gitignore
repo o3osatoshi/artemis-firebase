@@ -263,3 +263,4 @@ service-account-credentials.json
 **/tsconfig-compile.json
 yarn.lock
 
+/hosting/artemis-firebase-firebase-adminsdk-f53t2-cd86dd10ec.json
