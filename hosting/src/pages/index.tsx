@@ -1,7 +1,7 @@
 import Link from "next/link";
 import axios from "axios";
 import { auth } from "../utils/firebaseClient";
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import Login from "../components/Login";
 import { useState } from "react";
 
@@ -10,6 +10,16 @@ export default function IndexPage() {
 
   const insertCustomer = async () => {
     await axios.post("/api/customer");
+  };
+
+  const logout = async () => {
+    signOut(auth)
+      .then(() => {
+        console.log("logout");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   onAuthStateChanged(auth, (user) => {
@@ -27,6 +37,15 @@ export default function IndexPage() {
     <>
       {uid ? (
         <div>
+          <button
+            className={
+              "bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+            }
+            onClick={() => logout()}
+          >
+            Logout
+          </button>
+          <br />
           Hello World.
           <br />
           <Link href="/about">About</Link>
